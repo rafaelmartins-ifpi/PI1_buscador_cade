@@ -151,16 +151,16 @@ def obter_anoDaPagina(response):
 
 # Calcula o frescor da página de acordo com o ano
 # Recebe uma url e retorna um valor
-def calcular_frescor(penalidade_porAno, response):
+def calcular_frescor(pesoPublicacao, penalidadePorAno, response):
     anoAtual = datetime.now().year
     anoCriacao = obter_anoDaPagina(response)
     
-    pontuacao = 30
+    pontuacao = pesoPublicacao
     penalizacao = 0
     
     if anoCriacao < anoAtual:
         diferenca_anos = int(anoAtual - anoCriacao)
-        penalizacao = (penalidade_porAno * diferenca_anos)
+        penalizacao = (penalidadePorAno * diferenca_anos)
     
     return int(pontuacao + penalizacao)
 

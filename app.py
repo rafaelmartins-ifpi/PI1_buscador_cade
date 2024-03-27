@@ -19,6 +19,7 @@ def main():
     pesoH2 = int(settings['h2'])
     pesoP = int(settings['p'])
     pesoA = int(settings['a'])
+    pesoPublicacao = int(settings['publicacao'])
     penalidadeAutoreferencia = int(settings['autoReferencia'])
     penalidadePorAno = int(settings['penalidadePorAno'])
             
@@ -41,7 +42,7 @@ def main():
             titulo = obterTitulo(response)
             pontosAutoridade = pesoAutoridade * (contar_referencias(url, listaUrls))
             pontosAutoreferencia = penalidadeAutoreferencia * (contar_autoReferencias(url, response))
-            pontosFrescor = calcular_frescor(penalidadePorAno, response)
+            pontosFrescor = calcular_frescor(pesoPublicacao, penalidadePorAno, response)
 
             pagina = PaginaInternet(titulo, url, response)
             pagina.set_pontosAutoridade(pontosAutoridade)

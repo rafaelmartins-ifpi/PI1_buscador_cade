@@ -6,6 +6,7 @@
     "h2":10,
     "p":5,
     "a":2,
+    "publicacao":30,
     "autoReferencia":-20,
     "penalidadePorAno":-5
 }
